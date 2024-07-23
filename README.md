@@ -32,7 +32,7 @@ Although YoloV8 had the fastest inference time thanks to being a one-stage CNN, 
 Faster RCNN had worse results than DETR, with even longer inference time. 
 DETR showed the best performance in terms of mAP and mIoU.
 
-
+![Alt Text](assets/results.png)
 
 ### Task 1.2: Annotation
 For this task, we use the Roboflow software to perform data annotation and labeling. This includes:
