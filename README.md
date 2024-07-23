@@ -58,7 +58,12 @@ This task involves fine-tuning the pre-trained models using the annotated datase
 - **Analysis**: Evaluating the improvements and identifying any shortcomings.
 
 As shown in task 1.1, our best performing model was the DETR. As it was not too time-consuming, we attempted to fine-tune it using the video frames.
-First 25% of frames were used for training and the remaining frames were used for testing. Hyperparameters used: 
+First 25% of frames were used for training and the remaining frames were used for testing.
+
+<div align="center">
+  <img src="assets/learningR.png" alt="learningR" width="600"/>
+</div>
+Hyperparameters used: 
 Data augmentation techniques were applied to prevent overfitting, which included: 
 - Random horizontal flip 
 - Random resize (with a list of scales ranging from 480 to 800)
