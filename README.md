@@ -12,6 +12,26 @@ In this task, we evaluate and compare the performance of three popular object de
 - **Performance Evaluation**: Testing the models on a common dataset.
 - **Results Comparison**: Analyzing and comparing the accuracy, speed, and other relevant metrics.
 
+
+**Pretrained models used** :
+DETR (Resnet50 backbone): CNN and transformer based model (implementation).
+YoloV8 (YoloV8x version): one-stage CNN based model (implementation).
+Faster RCNN (Resnet50_FPNv2 backbone): two-stage CNN based model (implementation).
+
+**Implementation details**:
+Executed on a RTX 3060.
+All of the models were pre-trained on the COCO dataset. 
+We selected both parked and non-parked cars and bicycles. 
+Only detected bounding boxes with a confidence score greater than 0.5 were used.
+
+
+**Conclusions**:
+Although YoloV8 had the fastest inference time thanks to being a one-stage CNN, it yielded the worst results. 
+Faster RCNN had worse results than DETR, with even longer inference time. 
+DETR showed the best performance in terms of mAP and mIoU.
+
+
+
 ### Task 1.2: Annotation
 For this task, we use the Roboflow software to perform data annotation and labeling. This includes:
 
