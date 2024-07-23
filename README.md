@@ -60,10 +60,30 @@ This task involves fine-tuning the pre-trained models using the annotated datase
 As shown in task 1.1, our best performing model was the DETR. As it was not too time-consuming, we attempted to fine-tune it using the video frames.
 First 25% of frames were used for training and the remaining frames were used for testing.
 
+
+First 25% of frames were used for training and the remaining frames were used for testing. Hyperparameters used: 
+Data augmentation techniques were applied to prevent overfitting, which included: 
+Random horizontal flip 
+Random resize (with a list of scales ranging from 480 to 800)
+Random crop 
+AdawW optimizer was used. 
+Model was trained for 50 epochs. 
+Batch size of 8 was used.
+
 <div align="center">
   <img src="assets/learningR.png" alt="learningR" width="600"/>
 </div>
-Hyperparameters used: 
+
+The learning rate of 1e-3 was found to be too high, causing the loss to explode during the initial epochs. 
+The learning rates of 1e-4 and 1e-5 had similar performance. During the initial epochs, the loss was reduced significantly and then stabilized. 
+A learning rate of 1e-4 was selected for the next round of training.
+
+| Metric | Improvement |
+|--------|-------------|
+| mAP50  | +48.3%      |
+| mIoU   | +47.5%      |
+
+
 Data augmentation techniques were applied to prevent overfitting, which included: 
 - Random horizontal flip 
 - Random resize (with a list of scales ranging from 480 to 800)
