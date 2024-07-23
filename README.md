@@ -36,6 +36,13 @@ DETR showed the best performance in terms of mAP and mIoU.
   <img src="assets/Results.png" alt="Results" width="400"/>
 </div>
 
+
+The results show that both Faster RCNN and DETR networks outperform YoloV8 in terms of predicting more accurate and robust bounding boxes. 
+All models struggle to detect distant cars, with YoloV8 performing the worst. 
+The networks detect the class bicycle object as only the bicycle, whereas in the ground truth it is annotated with both the bicycle and the person riding it.
+Additionally, pretrained models fail to recognize vans and pick-ups as cars, often labeling them as trucks, despite being annotated as cars in the ground truth.
+
+
 ### Task 1.2: Annotation
 For this task, we use the Roboflow software to perform data annotation and labeling. This includes:
 
@@ -49,6 +56,21 @@ This task involves fine-tuning the pre-trained models using the annotated datase
 - **Model Fine-Tuning**: Adjusting the models to better fit the specific dataset.
 - **Performance Comparison**: Comparing the fine-tuned models against the pre-trained versions.
 - **Analysis**: Evaluating the improvements and identifying any shortcomings.
+
+As shown in task 1.1, our best performing model was the DETR. As it was not too time-consuming, we attempted to fine-tune it using the video frames.
+First 25% of frames were used for training and the remaining frames were used for testing. Hyperparameters used: 
+Data augmentation techniques were applied to prevent overfitting, which included: 
+- Random horizontal flip 
+- Random resize (with a list of scales ranging from 480 to 800)
+- Random crop 
+- AdawW optimizer was used. 
+- Model was trained for 50 epochs. 
+- Batch size of 8 was used.
+- Our videos were parsed into COCO format. 
+- A single RTX 3090 was used for training. 
+- Each training session lasted for 3 hours and 37 minutes. 
+- Starting point weights were taken from the COCO dataset. 
+- Multiple learning rates were tested during the training process.
 
 ### Task 1.4: K-Fold Cross-validation
 In this task, we apply K-Fold Cross-validation to the dataset using the sklearn implementation. The steps include:
