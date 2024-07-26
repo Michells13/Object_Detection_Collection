@@ -24,7 +24,7 @@ All of the models were pre-trained on the COCO dataset.
 We selected both parked and non-parked cars and bicycles. 
 Only detected bounding boxes with a confidence score greater than 0.5 were used.
 
-![Alt Text](results_fine_tunedrand0_output.gif)
+![Alt Text](assets/results_fine_tunedrand0_output.gif)
 
 
 **Conclusions**:
